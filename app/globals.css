@@ -10,8 +10,6 @@ button { font:inherit; }
 .marquee p { margin:0; color:var(--cyan); font:700 10px/1.2 var(--font-geist-mono),monospace; letter-spacing:.42em; }
 .marquee h1 { margin:2px 0 0; font-family:var(--font-geist-sans),sans-serif; font-size:clamp(27px,4vw,54px);font-weight:900;line-height:.95; letter-spacing:-.055em; text-shadow:0 0 30px rgba(255,138,36,.48); }
 .marquee h1 span { color:var(--magenta); padding:0 .12em; }
-.marquee .annoying-version { display:inline-block; margin:5px 0 0; padding:3px 10px; border:2px solid currentColor; border-radius:999px; color:var(--amber); background:#07131a; font:900 clamp(10px,1.2vw,14px)/1 var(--font-geist-mono),monospace; letter-spacing:.08em; text-transform:uppercase; box-shadow:0 0 16px currentColor; animation:annoying-blink 1s steps(1,end) infinite; }
-@keyframes annoying-blink { 0%,49% { color:var(--amber); opacity:1; transform:scale(1); } 50%,100% { color:var(--cyan); opacity:.18; transform:scale(.96); } }
 .scoreboard { width:min(990px,100%); margin:auto; display:grid; grid-template-columns:1fr 1.4fr 1fr; border:1px solid rgba(84,239,255,.35); background:rgba(3,11,31,.85); box-shadow:0 0 30px rgba(84,239,255,.08),inset 0 0 24px rgba(84,239,255,.05); }
 .scoreboard>div { min-width:0; padding:7px 12px; text-align:center; border-right:1px solid rgba(84,239,255,.18); }
 .scoreboard>div:last-child { border:0; }
