@@ -240,7 +240,7 @@ export default function CosmicPinball() {
   const settings = <div className="settings"><button onClick={() => setPrefs((p) => ({ ...p, sfxMuted: !p.sfxMuted }))} aria-pressed={prefs.sfxMuted}>SFX {prefs.sfxMuted ? "OFF" : "ON"}</button><button onClick={() => setPrefs((p) => ({ ...p, musicMuted: !p.musicMuted }))} aria-pressed={prefs.musicMuted}>MUSIC {prefs.musicMuted ? "OFF" : "ON"}</button><button onClick={() => setPaused(game, game.mode !== "paused")}>{game.mode === "paused" ? "RESUME" : "PAUSE"}</button><button onClick={doRestart}>RESTART</button></div>;
 
   return <main className="cabinet" onPointerDown={resumeAudio}>
-    <header className="marquee"><p>ORIGINAL COSMIC PINBALL</p><h1>STARFORGE<span>{"//"}</span>REACTOR</h1></header>
+    <header className="marquee"><p>ORIGINAL COSMIC PINBALL</p><h1>STARFORGE<span>{"//"}</span>REACTOR</h1><p className="annoying-version">New Annoying Version</p></header>
     <section className="scoreboard" aria-label="Game status">
       <div><small>SCORE</small><strong>{game.score.toLocaleString().padStart(8, "0")}</strong></div>
       <div><small>OBJECTIVE</small><strong className="objective">{game.message}</strong></div>
