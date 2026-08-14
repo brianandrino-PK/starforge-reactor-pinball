@@ -17,6 +17,12 @@ test("physical plunger power changes apex and full charge reaches the top arch",
   const soft=apex(0),full=apex(1);assert.ok(full<150,`full apex ${full}`);assert.ok(soft-full>220,`soft ${soft}, full ${full}`);
 });
 
+test("normal launch exits the channel into the shared upper playfield",()=>{
+  const physics=new StarforgePhysics();physics.resetBalls([1]);physics.launch(1,1);let minX=TABLE.width,maxY=0;const kinds=new Set();
+  for(let i=0;i<360;i++){physics.step(TABLE.fixedStep,{});const ball=physics.snapshot().balls[0];if(!ball)break;minX=Math.min(minX,ball.x);maxY=Math.max(maxY,ball.y);for(const event of physics.takeEvents())kinds.add(event.kind);}
+  assert.ok(minX<400,`launch stayed in channel: minX ${minX}`);assert.ok(kinds.has("launch-exit"));assert.ok(kinds.has("launch-guide")||kinds.has("top-arch"));assert.ok(maxY<1030);
+});
+
 test("motorized flippers rotate to separate held limits and return",()=>{
   const physics=new StarforgePhysics();const rest=physics.snapshot().flippers.map(f=>f.angle);advance(physics,.12,{left:true,right:true});const held=physics.snapshot().flippers.map(f=>f.angle);
   assert.ok(held[0]<rest[0]-.2);assert.ok(held[1]>rest[1]+.2);advance(physics,.18,{});const returned=physics.snapshot().flippers.map(f=>f.angle);assert.ok(Math.abs(returned[0]-rest[0])<.08);assert.ok(Math.abs(returned[1]-rest[1])<.08);

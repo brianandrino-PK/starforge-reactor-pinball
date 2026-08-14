@@ -70,7 +70,7 @@ export class StarforgePhysics {
       const ball=ballFixture.getUserData(), hit=other.getUserData()||{kind:"unknown"}; const key=`${ball.id}:${hit.id||hit.kind}`; this.contacts.add(key);
       const body=ballFixture.getBody(); const velocity=body.getLinearVelocity();
       if(hit.kind==="bumper"||hit.kind==="sling"){const point=other.getBody().getPosition();const delta=Vec2.sub(body.getPosition(),point);if(delta.lengthSquared()<.001)delta.set(0,-1);delta.normalize();body.applyLinearImpulse(Vec2.mul(delta,hit.kind==="bumper"?.58:.42),body.getWorldCenter(),true);}
-      if(hit.kind==="launch-exit"&&velocity.y<0) body.applyLinearImpulse(Vec2(-7.5,.05),body.getWorldCenter(),true);
+      if(hit.kind==="launch-exit"&&velocity.y<0) body.applyLinearImpulse(Vec2(-8,.05),body.getWorldCenter(),true);
       if(hit.kind==="ramp-enter") { if(velocity.y<-.7) this.rampState.set(ball.id,{side:hit.side,time:0}); else this.events.push({kind:"ramp-reject",ballId:ball.id,reason:"direction"}); }
       else if(hit.kind==="ramp-exit") { const state=this.rampState.get(ball.id); if(state?.side===hit.side) { this.events.push({kind:"ramp",id:`ramp-${hit.side}`,ballId:ball.id,material:"metal"}); this.rampState.delete(ball.id); } }
       else this.events.push({...hit,ballId:ball.id,speed:Math.hypot(velocity.x,velocity.y)});

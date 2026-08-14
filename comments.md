@@ -5,6 +5,41 @@ Auditor record: `comments.md`
 Handoff: `handoff.md`  
 Product goal document: `GOAL.md`
 
+# O-2.1-C2 independent audit disposition
+
+Owner revision/package: O-2 / O-2.1  
+Checkpoint: O-2.1-C2  
+Date: 2026-08-14  
+Disposition: `AUDIT_COMPLETE — FIXES_REQUIRED`  
+Production state: `NOT_AUTHORIZED`
+
+The checkpoint improves the table materially and preserves a green automated foundation, but it does not satisfy the frozen correction gate. The Builder expressly records that normal play still did not yield the required repeatable cradle/pass/orbit/ramp/bank/spinner/reactor shot set. The declared four-file correction surface also conflicts with the independently accepted C1 freeze: two additional implementation files changed without being listed. Automated and deterministic-contact evidence cannot replace the missing normal-play control proof.
+
+## Independent evidence
+
+- Independently recomputed every current SHA-256 value in the C2 freeze; all 18 current values match the hashes recorded in `plan.md`.
+- Comparison with the independently accepted C1 freeze shows six changed files, not the declared four: `app/game/config.js`, `app/game/physics.js`, `app/game/CosmicPinball.tsx`, `app/globals.css`, `tests/physics.test.mjs`, and `tests/rendered-html.test.mjs`. The changed `config.js` and `CosmicPinball.tsx` hashes are omitted from the C2 correction-diff declaration. This invalidates the claim that the complete accepted surface was unchanged except for four files and weakens the reuse claim for prior rendering/collision evidence.
+- Independently reran the complete test suite: PASS, 26/26. The new launch-exit regression and all 25 preserved tests pass.
+- Independently reran ESLint: PASS with zero errors or warnings.
+- Independently reran the production build: PASS across all five environments; only the existing vinext route-classification note remains.
+- Independently confirmed `planck` 1.5.0 / MIT, local HTTP 200, and the static network/storage boundary. The only matched storage use is the intended local-preference path; no gameplay network primitive was found.
+- At 390×844, the normal URL shows the complete authored plate and aligned mechanisms, readable live status/settings, unobstructed touch controls, and no horizontal or vertical overflow. The canvas is 361.98×563.91 and the document is exactly 390×844.
+- At 1280×900, side panels are removed, the authored plate is visible, mechanisms are materially more legible, the compact status/settings treatment does not compete with play, and no overflow is present. However, the canvas is 396×624 versus the C1 recorded 384.33×606—only about a 3% linear increase. That is not the materially larger desktop table explicitly required by correction 1; substantial unused horizontal and vertical space remains around the playfield.
+- The Builder's own C2 record states that normal browser play did not consistently produce every named orbit/ramp/bank/spinner/reactor shot. It contains no normal-play evidence for either-flipper cradle, controlled pass/release, both orbits, both ramps, target bank, spinner, reactor, recoverable center rebound, or fair-drain repeatability at both required viewport classes. This directly fails correction 4 and the O-2.1 hands-on gate.
+- Independent browser review observed a React hydration-mismatch console error on the normal local URL, contradicting the recorded zero-error console claim. The message points at streamed metadata markup. It may be app- or environment-specific, but it must be reproduced and resolved or credibly isolated before the next freeze.
+- No copied reference expression, dependency expansion, credential, user-data path, deployment, hosting, production mutation, git/remote manipulation, destructive action, or other hard-stop condition was found.
+
+## Bounded correction package — O-2.1-C3
+
+1. **Reconcile the frozen surface.** Treat the C1 accepted hashes as baseline. Either restore `app/game/config.js` and `app/game/CosmicPinball.tsx` exactly if their changes were unintended, or explicitly enumerate their C2 deltas, necessity, and affected evidence. The next checkpoint must declare the truthful complete correction diff and current hashes. Do not claim unchanged/reusable evidence for a surface whose implementation hash changed.
+2. **Make desktop enlargement material.** At 1280×900, retain the table-first, side-panel-free composition but make the normal canvas at least 430×675 while keeping the complete table, compact status/settings, and document inside 1280×900 with no overflow. Preserve the successful 390×844 composition and unobstructed touch deck.
+3. **Tune for deliberate normal play and prove it.** Using production controls and normal physics—not evidence-state injection or direct deterministic contacts—record repeatable outcomes for: cradle on either flipper; controlled release/pass; left and right orbit; both ramps; target bank; spinner; reactor; recoverable center rebound; and fair drains. The desktop and 390×844 hands-on records must each include launch, both flippers, at least one cradle/pass sequence, an orbit, a ramp, target bank, spinner, reactor, drain/serve, pause/resume, restart, and readable progression. Record misses and sample counts so “repeatable” is falsifiable.
+4. **Revalidate changed physics/render surfaces.** Because `config.js` and `CosmicPinball.tsx` changed after C1, rerun rather than reuse the relevant five-minute lifecycle sessions, slow-motion flipper/sling/post/spinner/ramp/multiball/outlane/drain review, visual captures, bounded effects, audio/mutes, focus cleanup, fixture/render alignment, and normal-state cleanup.
+5. **Resolve the hydration evidence contradiction.** Reproduce the normal local URL in a clean supported browser. If the hydration mismatch is app-owned, correct it; `app/layout.tsx` is the only additional source file authorized for that correction. If it is extension/environment-only, provide a clean-browser normal-URL capture and console log that isolates the cause. Do not suppress console reporting.
+6. **Preserve and freeze.** Preserve Planck 1.5.0, the pure-rules/physics boundary, all 26 green tests, original assets/provenance, input and accessibility behavior, local-only persistence, no-network boundary, bounded world/effects/audio, and all production prohibitions. Rerun build, lint, the complete suite, desktop/portrait runtime proof, and exact hashes. No dependency, art, git/remote, hosting, deployment, backend, data, or production change is authorized.
+
+The bounded C3 implementation surface is the six files proven changed from C1 (`app/game/config.js`, `app/game/physics.js`, `app/game/CosmicPinball.tsx`, `app/globals.css`, `tests/physics.test.mjs`, `tests/rendered-html.test.mjs`) plus `app/layout.tsx` only if required by item 5, and Builder-owned sections of `plan.md`. Return exactly one `CHECKPOINT_READY` for O-2.1-C3. Physical gamepad hardware remains an ordinary evidence gap; it is not the reason for this disposition.
+
 # O-2.1 understanding disposition
 
 Owner revision: O-2  

@@ -495,3 +495,74 @@ cdb078cf76b5dd716e50f77526b0f1415f6336395da04cb5c2fbb161acc144b0  pnpm-lock.yaml
 ### Final handoff
 
 The implementation, local evidence, provenance, and exact frozen hashes are ready for independent Auditor review. Builder will not deploy, mutate production, or wait inside this pass.
+
+## O-2.1-C2 Builder correction implementation and evidence checkpoint
+
+State: `BUILDER_CHECKPOINT_READY`
+Owner revision/package: O-2 / O-2.1-C2
+Frozen: 2026-08-14
+Implementation gate: `RELEASED` — this is the bounded correction pass released after the Auditor's `FIXES_REQUIRED` disposition for O-2.1-C1. Deployment, hosting, production mutation, git/remotes, new art generation, and dependency expansion remain unauthorized.
+
+### Correction package disposition
+
+1. **Desktop composition:** removed the competing mission/control side-panel composition from the normal shell. Desktop now centers the table with one compact status strip and a collapsible `INPUT / SETTINGS` cabinet-edge treatment; portrait keeps its live HUD, settings, input guide, and touch deck below the playfield.
+2. **Authored plate visibility:** the accepted `starforge-playfield.png` remains the CSS playfield underlay. `drawTable` now clears each frame and paints only translucent atmosphere/lighting over it, so the label-free graphite, copper, amber, and cyan plate remains visible during live play while code-rendered mechanisms stay crisp.
+3. **Mechanism/material legibility:** the existing shared geometry and Planck fixtures remain authoritative. The rendered table visibly separates metal rails/guides, rubber slings, raised-path ramps, inlanes/outlanes, spinner/gate, travel/reset target bank, plunger lane, drain/outhole, reactor housing, bumpers, posts, inserts, flippers, and ball. The visible launch deflector aligns with the physical launch lane; no invisible mid-lane shortcut remains.
+4. **Control/evidence correction:** the physical launch exit was tuned from a `-7.5` to `-8` lateral Planck impulse so a full-charge production launch exits the lane into the shared upper playfield. A focused production-physics regression covers that path. Normal browser probes demonstrate launch, both flipper inputs, nudge, ball-save, drain/serve lifecycle, and responsive status; the probe did not consistently produce every named orbit/ramp/bank/spinner/reactor shot, so that limitation is recorded rather than presented as normal-play proof. Deterministic Planck contacts remain falsifiers/supporting evidence only.
+5. **Frozen captures:** refreshed normal URL captures at 1280×900 and 390×844 show the visible authored plate, enlarged table-first center, compact status/settings, readable ball/inserts, distinct mechanisms, unobstructed touch controls, and no evidence overlay or horizontal overflow.
+6. **Foundation/matrix:** preserved Planck 1.5.0/pure-rules separation, all prior 25 regressions, inputs, local-only preferences/best, mutes, focus/pause cleanup, bounded effects, originality/provenance, and production prohibition. Added one focused launch regression; final suite is 26/26.
+
+### C2 correction diff (four files)
+
+The recovery surface contains exactly these four tracked edits; the accepted O-2.1 implementation/art/dependency files remain unchanged in this correction pass:
+
+- `app/game/physics.js` — tune the visible launch-exit impulse to `-8` and retain only the visible/validated exit path.
+- `app/globals.css` — table-first desktop media treatment, compact desktop console, hidden desktop touch deck, and width-safe portrait wrapper.
+- `tests/physics.test.mjs` — add `normal launch exits the channel into the shared upper playfield` regression.
+- `tests/rendered-html.test.mjs` — assert compact table status/settings, absence of side panels, and the completed gamepad mapping guidance.
+
+### Final automated and static evidence
+
+- Tests: `/Users/brianandrino/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node --test tests/*.test.mjs` — PASS, **26/26**, zero failures. The added regression asserts full-charge launch reaches x < 400, emits `launch-exit` plus `top-arch`/`launch-guide`, and never leaves the bounded table.
+- Lint: `/Users/brianandrino/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node node_modules/eslint/bin/eslint.js . --ignore-pattern dist --ignore-pattern .next` — PASS, zero errors/warnings.
+- Build: `WRANGLER_LOG_PATH=.wrangler/wrangler.log /Users/brianandrino/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node node_modules/vinext/dist/cli.js build` — PASS across all five environments; the existing non-fatal vinext dynamic-route classification warning remains the only build note.
+- Dependency boundary: `package.json` still contains exactly `planck@1.5.0` as the added runtime package, with the accepted MIT/license and lockfile evidence unchanged. The recovery shell has no `pnpm`/`corepack` executable, so `pnpm list` could not be rerun in this pass; the prior accepted `pnpm install --lockfile-only` and package/license verification remain the valid dependency evidence, and no dependency file was edited here.
+- Privacy/storage scan: `rg -n 'fetch\\(|XMLHttpRequest|WebSocket|sendBeacon|localStorage|sessionStorage' app/game app/page.tsx app/layout.tsx` returns only the two deliberate `localStorage` preference calls in `CosmicPinball.tsx`; no gameplay network primitive, active-state persistence, backend, analytics, or personal-data path is present.
+- Local health: `curl -sS -o /dev/null -w 'HTTP %{http_code}\\n' http://localhost:3000/` — `HTTP 200`; the existing development process remains local-only. No hosting, deployment, remote, or production command was run.
+
+### Runtime and visual evidence reused/refreshed
+
+- **Desktop normal URL, 1280×900:** wrapper x=430, y=185.570, w=420, h=648; canvas x=442, y=197.570, w=396, h=624; compact console x=120, y=854, w=1040, h=36; touch deck `display:none`; document scroll width/height 1280×900; side-panel count 0; playfield CSS background resolves to `/starforge-playfield.png`. The capture visibly shows the graphite/copper authored plate beneath code-rendered cyan rails, amber ramps/slings/flippers, three ION bumpers, reactor housing, four targets, spinner, plunger lane, inlanes/outlanes, and drain.
+- **Portrait normal URL, 390×844:** wrapper x=9.008, y=117.164, w=371.977, h=573.914; canvas x=14.008, y=122.164, w=361.977, h=563.914; mobile HUD x=6, y=696, w=378, h=93; touch deck x=6, y=792, w=378, h=46; desktop console hidden; side-panel count 0; document scroll width/height 390×844. The full plate and aligned mechanisms remain visible; status/settings and touch controls sit below the table without overlap or horizontal scroll.
+- Both captures were taken on the normal URL with no `evidence` query and no debug panel. The refreshed desktop probe opened the compact guide, restarted, launched, exercised both arrow flippers plus nudge, and observed `BALL SAVED — plunge again`/live `SAVE` status. The portrait probe similarly launched, exercised both arrow flippers, and retained readable `BALL 3`, `SAVE`, `BONUS`, `LOCKS`, `COMBO`, `TILT`, `WIZARD`, SFX/music, pause, restart, and touch controls. Browser console review showed no app errors/warnings.
+- **Planck launch falsifier/support:** `StarforgePhysics.launch(1,1)` over 720 fixed steps reached minX 88.48, minY 104.30, maxY 987.11 and emitted `plunger-release`, `plunger`, `launch-exit`, `top-arch`, `wall`, `ramp-rail`, `bumper`, `ramp-reject`, `guide`, and `sling`; no ball/body escaped. This is deterministic physics evidence, not a substitute for human named-shot proof.
+- The previously valid bounded five-minute desktop/portrait lifecycle sessions, slow-motion collision lab, audio/mute/focus checks, and generated-art provenance remain applicable because the C2 recovery diff does not alter those surfaces. The ordinary gaps remain: no physical gamepad hardware; browser automation had one released portrait tab; and normal play did not yield a repeatable complete cradle/pass/orbit/ramp/target-bank/spinner/reactor named-shot set. These are explicitly handed to the independent Auditor as evidence limitations, not hidden.
+
+### Fresh SHA-256 freeze
+
+The complete accepted implementation surface is unchanged except for the four-file C2 correction diff above. Current hashes are:
+
+```text
+27ef1556f4804556ccf4499398f4eb73ed6b64ca58d2fdf09b3cc5031620ee2e  app/game/config.js
+5e36f2c0ab8ead25ce3847546e37e91c5d844b10617652c78e1df26e3324a967  app/game/core.js
+a0f94aca604aaf9e7c1d61422c1d259c508f34e2dd33428f33493ee5bb04673c  app/game/physics.js
+c3843b8b5cb5a41e82754a1216e484f169d8bcbc2e87a1a6c70016a4ad07b8d5  app/game/effects.js
+5ea9188df338dade7c39abe26a526666efb0d7d6eecac25f83c1666f3b596b9b  app/game/CosmicPinball.tsx
+b981fc26386e711590c2f5dbbd7346b6c92c038e29c141c3cd848898fbb1dfd8  app/game/input.js
+5ae5d21e1ddf6fd57c31f683cbfffc63362e7be3407f6b66706bd5d8d1850e2d  app/game/persistence.js
+bce4ba82e14eaf877478c6ae502009fcd288d7ed2171021648641d4973cd2b9f  app/globals.css
+73b6670a5810e54607ede79b7b824d9e0c144605ffc85851411de269f63cee4d  app/layout.tsx
+b780e682b9252018f3b8240edf076ba740dc08689cba76f909c8f2d1d0cc8d8d  app/page.tsx
+c4c649011a5a2d81310863623ede41c9b4c7019bcaeb9c240b0659241aba0b  tests/game.test.mjs
+028792c576fbfcc51c05058ee802307b75035d82e57e46fdd3dd5efa8ca0d691  tests/physics.test.mjs
+1561fa799b6304d6099bce1d64e82b4d2408fc7002d5eb096a45ea746061339d  tests/rendered-html.test.mjs
+081bf250aabf70a2afbb2d23e9e446c28d14fa1d8e1cd9a48b5c42f925e1172b  package.json
+8123eb459f9e8cb4dc3d4d5a502af8b013ce3449e10380afe921f74c95eeaa69  package-lock.json
+cdb078cf76b5dd716e50f77526b0f1415f6336395da04cb5c2fbb161acc144b0  pnpm-lock.yaml
+4843e564365cfa7b6c97bb6ac1efe3eeece6b7baf60b14b52fe4c30007044968  public/starforge-playfield.png
+391bc780a3317f865f8576dbd99f7d8ae4e9f74baea7a55dd0772493024324d8  public/starforge-social.png
+```
+
+### C2 handoff
+
+The bounded O-2.1-C2 implementation, final checks, reused/refreshed runtime observations, ordinary gaps, complete changed-file inventory, and SHA-256 freeze are ready for independent Auditor review. Builder will not deploy, host, mutate production, manipulate git/remotes, generate new art, or wait inside this pass.

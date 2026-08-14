@@ -13,7 +13,7 @@ test("server renders the finished cosmic pinball shell", async () => {
   const html = await response.text();
   assert.match(html, /Starforge Reactor/); assert.match(html, /ORIGINAL COSMIC PINBALL/);
   assert.match(html, /Touch pinball controls/); assert.match(html, /Game status/);
-  assert.match(html, /Mobile live status/); assert.match(html, /BALL/); assert.match(html, /SAVE/); assert.match(html, /BONUS/); assert.match(html, /LOCKS/); assert.match(html, /COMBO/); assert.match(html, /TILT/); assert.match(html, /WIZARD/); assert.match(html, /INPUT GUIDE/); assert.match(html, /View restart/);
+  assert.match(html, /Mobile live status/); assert.match(html, /BALL/); assert.match(html, /SAVE/); assert.match(html, /BONUS/); assert.match(html, /LOCKS/); assert.match(html, /COMBO/); assert.match(html, /TILT/); assert.match(html, /WIZARD/); assert.match(html, /INPUT GUIDE/); assert.match(html, /gamepad bumpers\/A\/d-pad\/Menu\/View/);
   assert.match(html, /Compact table status/); assert.match(html, /INPUT \/ SETTINGS/); assert.doesNotMatch(html, /Mission progress|controls-panel|mission-panel/);
   assert.doesNotMatch(html, /LOCAL EVIDENCE|PROVE DIRECTIONAL RAMP/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
